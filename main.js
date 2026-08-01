@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // PRELOADER LOGIC (With Fail-Safe)
+    // PRELOADER LOGIC
     const preloader = document.getElementById('preloader');
     if (preloader) {
         window.addEventListener('load', () => {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* =========================================
-       0. GLOBAL COMPONENT INJECTOR (Nav & Footer)
+       0. GLOBAL COMPONENT INJECTOR
     ========================================= */
     const globalNav = document.querySelector('.top-nav');
     const globalFooter = document.querySelector('.site-footer');
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
     <div class="nav-actions">
         <a href="/contact.html" class="btn btn-primary">Let's Talk</a>
-      <button id="themeToggle" class="theme-toggle-track" aria-label="Toggle Dark Mode">
+        <button id="themeToggle" class="theme-toggle-track" aria-label="Toggle Dark Mode">
             <span class="theme-text text-dark">Dark</span>
             <span class="theme-text text-light">Light</span>
             <div class="theme-liquid-bubble">
@@ -38,11 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>`;
 
     const footerHTML = `
-    <div class="footer-glow"></div>
     <div class="footer-grid">
         <div class="footer-col">
-            <h2 style="font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 1rem;">Fardin Rahman<br><span class="gradient-text">Khan Raafi</span></h2>
-            <p style="color: var(--text-muted); margin-bottom: 1rem; max-width: 350px; line-height: 1.6;">
+            <h2 style="font-family: 'Syne', sans-serif; font-weight: 900; color: var(--text-main);">Fardin Rahman<br><span class="gradient-text">Khan Raafi</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem; max-width: 350px; line-height: 1.6; font-size: 1.1rem;">
                 Marketing professional passionate about brand communication, creative strategies, and growth leadership.
             </p>
         </div>
@@ -55,43 +54,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="/certificates.html">Certificates</a>
                 <a href="/volunteer.html">Leadership</a>
                 <a href="/resume.html">Resume</a>
-                <a href="/contact.html">Contact</a>
             </div>
         </div>
         <div class="footer-col">
-            <h4>Contact Info</h4>
+            <h4>Contact & Socials</h4>
             <div class="footer-col-links">
-                <a href="mailto:fardinraafi@gmail.com">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px; vertical-align: middle;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    fardinraafi@gmail.com
-                </a>
-                <a href="https://www.linkedin.com/in/fardinraafi" target="_blank">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px; vertical-align: middle;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                    LinkedIn Profile
-                </a>
-                <a href="https://x.com/fardinraafii" target="_blank">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px; vertical-align: middle;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    Twitter
-                </a>
-                <a href="https://github.com/fardinraafi" target="_blank">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px; vertical-align: middle;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                    GitHub
-                </a>
-                <a href="https://www.behance.net/fardinraafi" target="_blank">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px; vertical-align: middle;"><path d="M22 7h-7v2h7V7zm1.72 5.38c-.18-1.54-1.5-3.38-4.22-3.38-3.08 0-4.5 2.5-4.5 5.25 0 2.94 1.7 5.75 5 5.75 3.26 0 4.38-2.3 4.54-3.62h-2.12c-.12.82-.76 1.75-2.32 1.75-1.58 0-2.34-1.12-2.48-2.62h6.98c.04-.46.16-2.18.12-3.13zM17.48 11.5c.08-1.02.76-1.88 2.02-1.88 1.14 0 1.94.76 2.06 1.88h-4.08zM10.12 11c1.24-.46 2.22-1.42 2.22-3.3 0-2.42-1.92-3.7-4.66-3.7H0v16h8.04c2.8 0 4.96-1.34 4.96-4.06 0-2.3-1.68-3.72-2.88-4.94zM2.84 6.22h4.52c1.46 0 2.34.6 2.34 1.88 0 1.34-.84 2.02-2.38 2.02H2.84V6.22zm4.84 9.56H2.84v-4.14h4.74c1.64 0 2.68.74 2.68 2.14 0 1.48-1.12 2-2.58 2z"/></svg>
-                    Behance
-                </a>
-                <a href="https://www.pinterest.com/yourusername" target="_blank">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px; vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.63 7.85 6.35 9.31-.09-.79-.16-2.01.03-2.87.18-.8.18-.8 1.18-4.52 0 0-.31-.62-.31-1.53 0-1.43.83-2.5 1.86-2.5.86 0 1.27.65 1.27 1.43 0 .86-.55 2.15-.83 3.35-.24 1.01.5 1.83 1.49 1.83 1.79 0 3.17-1.89 3.17-4.6 0-2.4-1.73-4.08-4.22-4.08-3 0-4.76 2.25-4.76 4.58 0 .86.33 1.78.74 2.28.08.1.09.19.06.29-.09.36-.28 1.15-.32 1.32-.05.21-.18.25-.4.15-1.49-.69-2.42-2.88-2.42-4.63 0-3.75 2.73-7.2 7.91-7.2 4.16 0 7.39 2.97 7.39 6.94 0 4.14-2.61 7.48-6.24 7.48-1.22 0-2.37-.63-2.76-1.38l-.75 2.87c-.27 1.04-1.01 2.34-1.5 3.13 1.11.34 2.29.53 3.52.53 5.52 0 10-4.48 10-10S17.52 2 12 2z"></path></svg>
-                    Pinterest
-                </a>
-                <a href="Fardin_Resume.pdf" download="Fardin_Rahman_Khan_Raafi_Resume.pdf" class="btn" style="background: #E2E8F0; color: #0F172A; padding: 10px 20px; font-weight: 800; margin-top: 1rem; text-align: center; border: 1px solid #CBD5E1; border-radius: 100px;">Download Resume 📥</a>
+                <a href="mailto:fardinraafi@gmail.com">fardinraafi@gmail.com</a>
+                <a href="https://www.linkedin.com/in/fardinraafi" target="_blank">LinkedIn Profile</a>
+                <a href="https://x.com/fardinraafii" target="_blank">Twitter</a>
+                <a href="https://github.com/fardinraafi" target="_blank">GitHub</a>
+                <a href="https://www.behance.net/fardinraafi" target="_blank">Behance</a>
+                <a href="Fardin_Resume.pdf" download="Fardin_Rahman_Khan_Raafi_Resume.pdf" class="btn btn-outline" style="margin-top: 1rem; border-color: var(--c1);">Download Resume 📥</a>
             </div>
         </div>
     </div>
     <div class="copyright">
         © <span id="current-year"></span> Fardin Rahman Khan Raafi. All rights reserved. Built for Humans & AI.
     </div>`;
+
     if (globalNav) {
         globalNav.innerHTML = navHTML;
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
@@ -107,16 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (globalFooter) globalFooter.innerHTML = footerHTML;
 
     /* =========================================
-       CUSTOM DYNAMIC FAVICON
-    ========================================= */
-    const favicon = document.createElement('link');
-    favicon.rel = 'icon';
-    favicon.type = 'image/svg+xml';
-    const svgIcon = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='#7C3AED'/><text x='50' y='72' font-family='sans-serif' font-size='55' font-weight='900' text-anchor='middle' fill='white'>FR</text></svg>`;
-    favicon.href = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svgIcon);
-    document.head.appendChild(favicon);
-
-    /* =========================================
        1. THEME TOGGLE LOGIC
     ========================================= */
     const themeBtn = document.getElementById('themeToggle');
@@ -130,9 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* =========================================
-       2. CURRENT YEAR UPDATER
-    ========================================= */
     const currentYearEl = document.getElementById('current-year');
     if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
 
@@ -141,51 +108,18 @@ document.addEventListener('DOMContentLoaded', () => {
     ========================================= */
     const twText = document.getElementById('tw-text');
     if (twText) {
-        const words = ['Marketing Specialist', 'Content Architect', 'Growth Associate', 'B2B Strategist', 'Branding Expert', 'ALP 2026 Fellow', 'SaaS Marketer', 'RevOps Certified', 'B2B Sales Expert', 'Lead Gen Specialist', 'LinkedIn Strategist'];
+        const words = ['Marketing Executive.', 'Growth Associate.', 'Brand Strategist.', 'B2B Sales Expert.'];
         let i = 0, j = 0, isDeleting = false;
         function type() {
             const currentWord = words[i];
             twText.textContent = currentWord.substring(0, isDeleting ? j - 1 : j + 1); 
             isDeleting ? j-- : j++;
-            let typeSpeed = isDeleting ? 50 : 100;
-            if (!isDeleting && j === currentWord.length) { typeSpeed = 2000; isDeleting = true; } 
+            let typeSpeed = isDeleting ? 40 : 80;
+            if (!isDeleting && j === currentWord.length) { typeSpeed = 2500; isDeleting = true; } 
             else if (isDeleting && j === 0) { isDeleting = false; i = (i + 1) % words.length; typeSpeed = 500; }
             setTimeout(type, typeSpeed);
         }
         type();
-    }
-
-    /* =========================================
-       4. DIGITAL CLOCK WIDGET
-    ========================================= */
-    const hourMinEl = document.getElementById('digital-hour-min');
-    const ampmEl = document.getElementById('digital-ampm');
-    const dateEl = document.getElementById('digital-date');
-
-    if (hourMinEl && ampmEl && dateEl) {
-        function updateClock() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('en-US', { 
-                timeZone: 'Asia/Dhaka', 
-                hour: '2-digit', 
-                minute: '2-digit', 
-                hour12: true 
-            });
-            const [time, ampm] = timeString.split(' ');
-            const dateString = now.toLocaleDateString('en-US', { 
-                timeZone: 'Asia/Dhaka', 
-                weekday: 'long', 
-                month: 'long', 
-                day: 'numeric' 
-            });
-
-            hourMinEl.textContent = time;
-            ampmEl.textContent = ampm;
-            dateEl.textContent = dateString;
-        }
-        
-        setInterval(updateClock, 1000);
-        updateClock();
     }
 
     /* =========================================
@@ -195,9 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (revealElements.length > 0) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+                if (entry.isIntersecting) { 
+                    entry.target.classList.add('visible'); 
+                    observer.unobserve(entry.target); 
+                }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
         revealElements.forEach(el => observer.observe(el));
     }
 
@@ -206,103 +143,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ========================================= */
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     if (scrollTopBtn) {
-        window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('show', window.scrollY > 400); });
+        window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('show', window.scrollY > 500); });
         scrollTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     }
-
-    /* =========================================
-       7. DYNAMIC CERTIFICATES GENERATOR
-    ========================================= */
-    const certGrid = document.getElementById('cert-grid');
-    if (certGrid) {
-        let certNumbers = Array.from({length: 53}, (_, i) => i + 1);
-        certNumbers.sort(() => Math.random() - 0.5); 
-        let certsHTML = '';
-        certNumbers.forEach(c => {
-            certsHTML += `<img src="certs/cert-${c}.jpg" class="cert-img" loading="lazy" style="cursor: zoom-in;" onerror="this.onerror=null; this.src='https://placehold.co/800x600/F8FAFC/64748B?text=Certificate+${c}'" alt="Fardin Rahman Khan Raafi, Marketing Executive - Professional Certificate ${c}">`;
-        });
-        certGrid.innerHTML = certsHTML;
-    }
-
-    /* =========================================
-       8. GLOBAL LIGHTBOX (For Certificates & Volunteer pages)
-    ========================================= */
-    const lightbox = document.getElementById('lightbox-overlay');
-    const lightboxImg = document.getElementById('lightbox-img');
-
-    if (lightbox && lightboxImg && !window.location.pathname.includes('gallery.html')) {
-        let currentImageIndex = 0;
-        let imageArray = [];
-
-        const initializeLightbox = () => {
-            const images = document.querySelectorAll('.cert-img, .vol-card .grid-img');
-            if (images.length > 0) {
-                imageArray = Array.from(images).map(img => img.src);
-                images.forEach((img, index) => {
-                    img.style.cursor = 'zoom-in';
-                    img.onclick = null; 
-                    img.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        currentImageIndex = index;
-                        lightboxImg.src = imageArray[currentImageIndex];
-                        lightbox.classList.add('show');
-                        document.body.style.overflow = 'hidden';
-                    });
-                });
-            }
-        };
-
-        initializeLightbox();
-        setTimeout(initializeLightbox, 300);
-
-        window.closeLightbox = function() {
-            lightbox.classList.remove('show');
-            document.body.style.overflow = 'auto';
-        };
-
-        window.changeImage = function(step, event) {
-            if (event) event.stopPropagation();
-            currentImageIndex += step;
-            if (currentImageIndex < 0) currentImageIndex = imageArray.length - 1;
-            if (currentImageIndex >= imageArray.length) currentImageIndex = 0;
-            lightboxImg.src = imageArray[currentImageIndex];
-        };
-
-        lightbox.addEventListener('click', (e) => {
-            if(e.target === lightbox || e.target.classList.contains('lightbox-content')) {
-                window.closeLightbox();
-            }
-        });
-
-        let touchStartX = 0; let touchEndX = 0;
-        lightbox.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, {passive: true});
-        lightbox.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            if (touchStartX - touchEndX > 50) window.changeImage(1);
-            if (touchEndX - touchStartX > 50) window.changeImage(-1);
-        }, {passive: true});
-
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('show')) return;
-            if (e.key === 'Escape') window.closeLightbox();
-            if (e.key === 'ArrowRight') window.changeImage(1);
-            if (e.key === 'ArrowLeft') window.changeImage(-1);
-        });
-    }
-
-    /* =========================================
-       9. SMOOTH PAGE TRANSITIONS
-    ========================================= */
-    document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function(e) {
-         if (this.hostname === window.location.hostname && this.target !== '_blank' && !this.hasAttribute('download') && this.getAttribute('href') !== '#' && !this.getAttribute('href').startsWith('#')) {
-                e.preventDefault(); 
-                document.body.classList.add('fade-out');
-                setTimeout(() => { window.location.href = this.href; }, 300);
-            }
-        });
-    });
-    window.addEventListener('pageshow', (event) => { if (event.persisted) document.body.classList.remove('fade-out'); });
 
     /* =========================================
        10. PLAYBOOK LOGIC
@@ -313,63 +156,14 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault(); 
             const submitBtn = playbookForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            const emailInput = playbookForm.querySelector('input[name="email"]').value;
             
             submitBtn.innerHTML = 'Opening...';
             window.open('/B2B_Growth_Playbook.pdf', '_blank');
             
-            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxcwqAKQ8S_LzdlYhTRQUw73dQGU8o_T0KfSHKPKYN6lY-V9n_jdxxGFoCLkHWfWRE0VA/exec'; 
-            
-            if (GOOGLE_SCRIPT_URL !== 'INSERT_YOUR_GOOGLE_SCRIPT_URL_HERE') {
-                const formData = new FormData();
-                formData.append('email', emailInput);
-                formData.append('date', new Date().toLocaleString());
-
-                fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: formData })
-                .then(() => { submitBtn.innerHTML = 'Success!'; setTimeout(() => { submitBtn.innerHTML = originalText; playbookForm.reset(); }, 3000); })
-                .catch(error => { console.error(error); submitBtn.innerHTML = 'Success!'; setTimeout(() => { submitBtn.innerHTML = originalText; playbookForm.reset(); }, 3000); });
-            } else {
-                setTimeout(() => { submitBtn.innerHTML = 'Enjoy!'; setTimeout(() => { submitBtn.innerHTML = originalText; playbookForm.reset(); }, 3000); }, 800);
-            }
-        });
-    }
-
-    /* =========================================
-       11. MICRO-INTERACTIONS
-    ========================================= */
-    const progressContainer = document.createElement('div');
-    progressContainer.className = 'scroll-progress-container';
-    const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress-bar';
-    progressContainer.appendChild(progressBar);
-    document.body.appendChild(progressContainer);
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        progressBar.style.width = (winScroll / height) * 100 + '%';
-    });
-
-    document.querySelectorAll('.glass-card:not(.no-hover), .blog-card, .collage-item, .cert-img, .info-card, .stat-box, .highlight-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left, y = e.clientY - rect.top; 
-            card.style.setProperty('--mouse-x', `${x}px`); card.style.setProperty('--mouse-y', `${y}px`);
-            
-            const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -4; 
-            const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 4;
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
-            card.style.transition = 'none'; 
-        });
-        card.addEventListener('mouseleave', () => { card.style.transform = ''; card.style.transition = 'all 0.4s ease'; });
-    });
-
-    /* --- Footer Spotlight Tracking (Global Proximity) --- */
-    const siteFooter = document.querySelector('.site-footer');
-    if (siteFooter) {
-        window.addEventListener('mousemove', (e) => {
-            const rect = siteFooter.getBoundingClientRect();
-            siteFooter.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-            siteFooter.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+            setTimeout(() => { 
+                submitBtn.innerHTML = 'Enjoy!'; 
+                setTimeout(() => { submitBtn.innerHTML = originalText; playbookForm.reset(); }, 3000); 
+            }, 800);
         });
     }
 
@@ -412,39 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* =========================================
-       13. CONTACT FORM SUBMISSION
-    ========================================= */
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); 
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = 'Sending...';
-            
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
-            })
-            .then(async (response) => {
-                if (response.status === 200) window.location.href = '/message-sent.html';
-                else { submitBtn.innerHTML = 'Error. Try Again.'; setTimeout(() => { submitBtn.innerHTML = originalText; }, 3000); }
-            }).catch(error => { console.log(error); submitBtn.innerHTML = 'Network Error.'; setTimeout(() => { submitBtn.innerHTML = originalText; }, 3000); });
-        });
-    }
-
-    /* =========================================
-       14. FLOATING GLASS PARALLAX
-    ========================================= */
-    const glassIcons = document.querySelectorAll('.floating-glass');
-    if (glassIcons.length > 0) {
-        glassIcons.forEach(icon => icon.style.transform = `translate3d(0, 0px, 0) rotate(${icon.getAttribute('data-rot') || '0'}deg)`);
-        window.addEventListener('scroll', () => {
-            glassIcons.forEach((icon, index) => icon.style.transform = `translate3d(0, -${window.scrollY * ((index + 1) * 0.12)}px, 0) rotate(${icon.getAttribute('data-rot') || '0'}deg)`);
-        }, { passive: true });
-    }
-
-    /* =========================================
        15. 🤖 FIFI CHATBOT LOGIC
     ========================================= */
     const openChatBtn = document.getElementById('openChatBtn'), closeChatBtn = document.getElementById('closeChatBtn'), chatModal = document.getElementById('chatModal');
@@ -473,13 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(chatLog) chatLog.appendChild(userMsg);
         if (chatArea) chatArea.scrollTop = chatArea.scrollHeight;
 
-        const loadingPhrases = [
-            "Let me check on that...", 
-            "Hold on a second...", 
-            "Fetching the details...", 
-            "Just a moment...",
-            "Pulling that up for you..."
-        ];
+        const loadingPhrases = ["Let me check on that...", "Fetching the details...", "Just a moment..."];
         const randomLoadingText = loadingPhrases[Math.floor(Math.random() * loadingPhrases.length)];
 
         const aiLoadingMsg = document.createElement('div'); 
@@ -505,19 +260,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const aiMsg = document.createElement('div'); 
             aiMsg.className = 'chat-bubble ai-bubble';
             
-            if (query.includes('skills')) aiMsg.innerHTML = 'Fardin specializes in <strong>Brand Strategy</strong>, CRM management (Salesforce, Apollo.io), and B2B Lead Generation.';
-            else if (query.includes('B2B')) aiMsg.innerHTML = 'He has <strong>one year of professional experience specifically focused on B2B sales and Marketing at Augmex</strong>. Currently, he works as a Marketing Executive at Augmex Technologies, enriching 40,000+ CRM records and executing multi-channel outreach strategies.';
+            if (query.includes('skills')) aiMsg.innerHTML = 'Fardin specializes in <strong>Brand Strategy</strong>, CRM management, and B2B Lead Generation.';
+            else if (query.includes('B2B')) aiMsg.innerHTML = 'He has professional experience focused on B2B sales and Marketing at Augmex Technologies, enriching 40,000+ CRM records.';
             else if (query.includes('contact')) aiMsg.innerHTML = 'You can reach him directly through his <a href="/contact.html" style="color: var(--c1); font-weight: bold;">Contact Page</a>.';
             else if (query.includes('Resume')) aiMsg.innerHTML = 'You can view and download his full resume on his <a href="/resume.html" style="color: var(--c1); font-weight: bold;">Resume Page</a>.';
             else if (query.includes('academics')) aiMsg.innerHTML = 'Fardin holds a Bachelor of Business Administration (BBA) in Marketing from BUBT, graduating with an excellent CGPA of 3.80.';
-            else if (query.includes('extracurriculars')) aiMsg.innerHTML = 'He has extensive leadership experience! Check out his <a href="/volunteer.html" style="color: var(--c1); font-weight: bold;">Leadership & Extracurriculars page</a> to learn more.';
+            else if (query.includes('extracurriculars')) aiMsg.innerHTML = 'He has extensive leadership experience! Check out his <a href="/volunteer.html" style="color: var(--c1); font-weight: bold;">Leadership page</a> to learn more.';
             else aiMsg.textContent = 'Thanks for asking! Please explore the rest of the portfolio for more details.';
             
             if(chatLog) { 
                 chatLog.appendChild(aiMsg); 
                 if (chatArea) chatArea.scrollTop = chatArea.scrollHeight; 
             }
-        }, 1200); 
+        }, 1000); 
     };
 
     if (resetChatBtn) {
@@ -528,144 +283,4 @@ document.addEventListener('DOMContentLoaded', () => {
             resetChatBtn.style.display = 'none';
         });
     }
-
-    /* =========================================
-       18. PAGE SPECIFIC BACKGROUND PHYSICS ENGINE 
-       (Neural Canvas Extracted from HTML)
-    ========================================= */
-    const canvas = document.getElementById('neural-canvas');
-    if(canvas) {
-        const ctx = canvas.getContext('2d');
-        let width, height;
-        let particles = [];
-        
-        // Smaller radius for less aggressive mouse pulling
-        let mouse = { x: null, y: null, radius: 100 }; 
-
-        window.addEventListener('mousemove', (event) => {
-            mouse.x = event.clientX;
-            mouse.y = event.clientY;
-        });
-
-        window.addEventListener('mouseout', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
-
-        function resize() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        class Particle {
-            constructor(x, y, dx, dy, size, color) {
-                this.x = x; this.y = y;
-                this.dx = dx; this.dy = dy;
-                this.size = size; this.color = color;
-                this.baseX = this.x; this.baseY = this.y;
-                this.density = (Math.random() * 30) + 1;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = this.color;
-                ctx.fill();
-            }
-            update() {
-                if (mouse.x != null && mouse.y != null) {
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-                    let forceDirectionX = dx / distance;
-                    let forceDirectionY = dy / distance;
-                    let maxDistance = mouse.radius;
-                    let force = (maxDistance - distance) / maxDistance;
-                    let directionX = forceDirectionX * force * this.density;
-                    let directionY = forceDirectionY * force * this.density;
-
-                    if (distance < mouse.radius) {
-                        this.x -= directionX;
-                        this.y -= directionY;
-                    } else {
-                        if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 10;
-                        if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 10;
-                    }
-                } else {
-                    if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 10;
-                    if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 10;
-                }
-                this.baseX += this.dx;
-                this.baseY += this.dy;
-                if (this.baseX < 0 || this.baseX > width) this.dx = -this.dx;
-                if (this.baseY < 0 || this.baseY > height) this.dy = -this.dy;
-                this.draw();
-            }
-        }
-
-        function init() {
-            particles = [];
-            // Divisor set to 15000 = Far fewer particles for better performance
-            let numberOfParticles = (width * height) / 15000; 
-            // Fainter colors for subtlety
-            let colors = ['rgba(59, 130, 246, 0.3)', 'rgba(139, 92, 246, 0.3)', 'rgba(219, 39, 119, 0.3)'];
-
-            for (let i = 0; i < numberOfParticles; i++) {
-                let size = (Math.random() * 2) + 1;
-                let x = Math.random() * (innerWidth - size * 2 - size * 2) + size * 2;
-                let y = Math.random() * (innerHeight - size * 2 - size * 2) + size * 2;
-                let dx = (Math.random() - 0.5) * 1; 
-                let dy = (Math.random() - 0.5) * 1; 
-                let color = colors[Math.floor(Math.random() * colors.length)];
-                particles.push(new Particle(x, y, dx, dy, size, color));
-            }
-        }
-
-        function connect() {
-            let opacityValue = 1;
-            for (let a = 0; a < particles.length; a++) {
-                for (let b = a; b < particles.length; b++) {
-                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) 
-                                 + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
-                    if (distance < (width / 7) * (height / 7)) {
-                        opacityValue = 1 - (distance / 20000);
-                        ctx.strokeStyle = `rgba(139, 92, 246, ${opacityValue * 0.2})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[a].x, particles[a].y);
-                        ctx.lineTo(particles[b].x, particles[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            ctx.clearRect(0, 0, width, height);
-            for (let i = 0; i < particles.length; i++) particles[i].update();
-            connect();
-        }
-
-        init();
-        animate();
-    }
-}); // <-- END OF DOMContentLoaded LISTENER
-
-/* =========================================
-   16. GOOGLE ANALYTICS 4
-========================================= */
-(function() {
-  const gaScript = document.createElement('script'); gaScript.async = true; gaScript.src = `https://www.googletagmanager.com/gtag/js?id=G-4QBSVPL8H6`; document.head.appendChild(gaScript);
-  window.dataLayer = window.dataLayer || []; window.gtag = function() { dataLayer.push(arguments); };
-  window.gtag('js', new Date()); window.gtag('config', 'G-4QBSVPL8H6');
-})();
-
-/* =========================================
-   17. ANTI-INSPECT & ANTI-COPY LOGIC
-========================================= */
-document.addEventListener('contextmenu', event => event.preventDefault());
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'F12' || ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) || ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u'))) e.preventDefault();
 });
