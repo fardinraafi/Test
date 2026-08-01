@@ -154,6 +154,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         type();
     }
+
+    /* =========================================
+       4. DIGITAL CLOCK WIDGET
+    ========================================= */
+    const hourMinEl = document.getElementById('digital-hour-min');
+    const ampmEl = document.getElementById('digital-ampm');
+    const dateEl = document.getElementById('digital-date');
+
+    if (hourMinEl && ampmEl && dateEl) {
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { 
+                timeZone: 'Asia/Dhaka', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                hour12: true 
+            });
+            const [time, ampm] = timeString.split(' ');
+            const dateString = now.toLocaleDateString('en-US', { 
+                timeZone: 'Asia/Dhaka', 
+                weekday: 'long', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+
+            hourMinEl.textContent = time;
+            ampmEl.textContent = ampm;
+            dateEl.textContent = dateString;
+        }
+        
+        setInterval(updateClock, 1000);
+        updateClock();
+    }
+
     /* =========================================
        5. SCROLL REVEAL ANIMATIONS
     ========================================= */
@@ -176,41 +210,37 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     }
 
- /* =========================================
+    /* =========================================
        7. DYNAMIC CERTIFICATES GENERATOR
     ========================================= */
     const certGrid = document.getElementById('cert-grid');
     if (certGrid) {
-        // Updated to 53 certificates
         let certNumbers = Array.from({length: 53}, (_, i) => i + 1);
         certNumbers.sort(() => Math.random() - 0.5); 
         let certsHTML = '';
         certNumbers.forEach(c => {
-            // Updated to pull from the new 'certs/' folder with SEO Alt tags
             certsHTML += `<img src="certs/cert-${c}.jpg" class="cert-img" loading="lazy" style="cursor: zoom-in;" onerror="this.onerror=null; this.src='https://placehold.co/800x600/F8FAFC/64748B?text=Certificate+${c}'" alt="Fardin Rahman Khan Raafi, Marketing Executive - Professional Certificate ${c}">`;
         });
         certGrid.innerHTML = certsHTML;
     }
 
-   /* =========================================
+    /* =========================================
        8. GLOBAL LIGHTBOX (For Certificates & Volunteer pages)
     ========================================= */
     const lightbox = document.getElementById('lightbox-overlay');
     const lightboxImg = document.getElementById('lightbox-img');
 
-    // Only run this if we are NOT on the gallery page (gallery has its own custom script)
     if (lightbox && lightboxImg && !window.location.pathname.includes('gallery.html')) {
         let currentImageIndex = 0;
         let imageArray = [];
 
         const initializeLightbox = () => {
-            // Target certificates and volunteer images specifically
             const images = document.querySelectorAll('.cert-img, .vol-card .grid-img');
             if (images.length > 0) {
                 imageArray = Array.from(images).map(img => img.src);
                 images.forEach((img, index) => {
                     img.style.cursor = 'zoom-in';
-                    img.onclick = null; // Clear any old handlers
+                    img.onclick = null; 
                     img.addEventListener('click', (e) => {
                         e.preventDefault();
                         currentImageIndex = index;
@@ -222,11 +252,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // Initialize immediately, and again after a short delay (to catch the dynamic certs)
         initializeLightbox();
         setTimeout(initializeLightbox, 300);
 
-        // Global functions called by your HTML buttons (X, <, >)
         window.closeLightbox = function() {
             lightbox.classList.remove('show');
             document.body.style.overflow = 'auto';
@@ -240,14 +268,12 @@ document.addEventListener('DOMContentLoaded', () => {
             lightboxImg.src = imageArray[currentImageIndex];
         };
 
-        // Close on background click
         lightbox.addEventListener('click', (e) => {
             if(e.target === lightbox || e.target.classList.contains('lightbox-content')) {
                 window.closeLightbox();
             }
         });
 
-        // Touch Swipe support
         let touchStartX = 0; let touchEndX = 0;
         lightbox.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, {passive: true});
         lightbox.addEventListener('touchend', e => {
@@ -256,7 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (touchEndX - touchStartX > 50) window.changeImage(-1);
         }, {passive: true});
 
-        // Keyboard arrow support
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('show')) return;
             if (e.key === 'Escape') window.closeLightbox();
@@ -264,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'ArrowLeft') window.changeImage(-1);
         });
     }
+
     /* =========================================
        9. SMOOTH PAGE TRANSITIONS
     ========================================= */
@@ -336,17 +362,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         card.addEventListener('mouseleave', () => { card.style.transform = ''; card.style.transition = 'all 0.4s ease'; });
     });
-/* --- Footer Spotlight Tracking (Global Proximity) --- */
+
+    /* --- Footer Spotlight Tracking (Global Proximity) --- */
     const siteFooter = document.querySelector('.site-footer');
     if (siteFooter) {
-        // Listen to the whole window, not just the footer frame!
         window.addEventListener('mousemove', (e) => {
             const rect = siteFooter.getBoundingClientRect();
             siteFooter.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
             siteFooter.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
         });
-        // We completely removed the 'mouseleave' event so it never abruptly turns off!
     }
+
     /* =========================================
        12. DYNAMIC LIVE STATUS WIDGET
     ========================================= */
@@ -418,23 +444,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
- /* =========================================
+    /* =========================================
        15. 🤖 FIFI CHATBOT LOGIC
     ========================================= */
     const openChatBtn = document.getElementById('openChatBtn'), closeChatBtn = document.getElementById('closeChatBtn'), chatModal = document.getElementById('chatModal');
     const chatGreeting = document.getElementById('chatGreeting'), chatOptions = document.getElementById('chatOptions'), chatLog = document.getElementById('chatLog'), resetChatBtn = document.getElementById('resetChatBtn');
 
-   if (openChatBtn && closeChatBtn && chatModal) {
-        // Now it toggles open and closed when you click the Fifi button!
+    if (openChatBtn && closeChatBtn && chatModal) {
         openChatBtn.addEventListener('click', () => chatModal.classList.toggle('show'));
         closeChatBtn.addEventListener('click', () => chatModal.classList.remove('show'));
-        // We added a tiny delay to the outside click detector so it doesn't instantly fight the toggle button
         document.addEventListener('click', (e) => { 
             if (chatModal.classList.contains('show') && !chatModal.contains(e.target) && !openChatBtn.contains(e.target)) {
                 chatModal.classList.remove('show'); 
             }
         });
     }
+
     window.sendQuery = function(query) {
         if (chatGreeting) chatGreeting.style.display = 'none';
         if (chatOptions) chatOptions.style.display = 'none';
@@ -442,14 +467,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const chatArea = document.getElementById('chatArea');
 
-        // 1. Immediately drop the user's question into the chat
         const userMsg = document.createElement('div'); 
         userMsg.className = 'chat-bubble user-bubble'; 
         userMsg.textContent = query;
         if(chatLog) chatLog.appendChild(userMsg);
         if (chatArea) chatArea.scrollTop = chatArea.scrollHeight;
 
-        // 2. Random Loading Phrases for Fifi
         const loadingPhrases = [
             "Let me check on that...", 
             "Hold on a second...", 
@@ -459,7 +482,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
         const randomLoadingText = loadingPhrases[Math.floor(Math.random() * loadingPhrases.length)];
 
-        // 3. Drop Fifi's Loading Bubble into the chat
         const aiLoadingMsg = document.createElement('div'); 
         aiLoadingMsg.className = 'chat-bubble ai-bubble';
         aiLoadingMsg.innerHTML = `<span style="opacity: 0.6; font-style: italic; display: flex; align-items: center; gap: 8px;">
@@ -467,15 +489,16 @@ document.addEventListener('DOMContentLoaded', () => {
             ${randomLoadingText}
         </span>`;
         
-        // Add a quick spin animation for the loading SVG just for this bubble
-        const style = document.createElement('style');
-        style.innerHTML = `@keyframes spin { 100% { transform: rotate(360deg); } }`;
-        document.head.appendChild(style);
+        if (!document.getElementById('spinner-style')) {
+            const style = document.createElement('style');
+            style.id = 'spinner-style';
+            style.innerHTML = `@keyframes spin { 100% { transform: rotate(360deg); } }`;
+            document.head.appendChild(style);
+        }
 
         if(chatLog) chatLog.appendChild(aiLoadingMsg);
         if (chatArea) chatArea.scrollTop = chatArea.scrollHeight;
 
-        // 4. Wait a second, remove the loading bubble, and drop the real answer
         setTimeout(() => {
             if (aiLoadingMsg.parentNode) aiLoadingMsg.parentNode.removeChild(aiLoadingMsg);
 
@@ -483,7 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
             aiMsg.className = 'chat-bubble ai-bubble';
             
             if (query.includes('skills')) aiMsg.innerHTML = 'Fardin specializes in <strong>Brand Strategy</strong>, CRM management (Salesforce, Apollo.io), and B2B Lead Generation.';
-            else if (query.includes('B2B')) aiMsg.innerHTML = 'He has <strong>one years of professional experience specifically focused on B2B sales and Marketinf at Augmex</strong>. Currently, he works as a Marketing Executive at Augmex Technologies, enriching 40,000+ CRM records and executing multi-channel outreach strategies.';
+            else if (query.includes('B2B')) aiMsg.innerHTML = 'He has <strong>one year of professional experience specifically focused on B2B sales and Marketing at Augmex</strong>. Currently, he works as a Marketing Executive at Augmex Technologies, enriching 40,000+ CRM records and executing multi-channel outreach strategies.';
             else if (query.includes('contact')) aiMsg.innerHTML = 'You can reach him directly through his <a href="/contact.html" style="color: var(--c1); font-weight: bold;">Contact Page</a>.';
             else if (query.includes('Resume')) aiMsg.innerHTML = 'You can view and download his full resume on his <a href="/resume.html" style="color: var(--c1); font-weight: bold;">Resume Page</a>.';
             else if (query.includes('academics')) aiMsg.innerHTML = 'Fardin holds a Bachelor of Business Administration (BBA) in Marketing from BUBT, graduating with an excellent CGPA of 3.80.';
@@ -494,7 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 chatLog.appendChild(aiMsg); 
                 if (chatArea) chatArea.scrollTop = chatArea.scrollHeight; 
             }
-        }, 1200); // Wait 1.2 seconds to simulate typing/thinking
+        }, 1200); 
     };
 
     if (resetChatBtn) {
@@ -505,7 +528,130 @@ document.addEventListener('DOMContentLoaded', () => {
             resetChatBtn.style.display = 'none';
         });
     }
-}); // <--- THIS WAS THE MISSING BRACKET!
+
+    /* =========================================
+       18. PAGE SPECIFIC BACKGROUND PHYSICS ENGINE 
+       (Neural Canvas Extracted from HTML)
+    ========================================= */
+    const canvas = document.getElementById('neural-canvas');
+    if(canvas) {
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        
+        // Smaller radius for less aggressive mouse pulling
+        let mouse = { x: null, y: null, radius: 100 }; 
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.clientX;
+            mouse.y = event.clientY;
+        });
+
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor(x, y, dx, dy, size, color) {
+                this.x = x; this.y = y;
+                this.dx = dx; this.dy = dy;
+                this.size = size; this.color = color;
+                this.baseX = this.x; this.baseY = this.y;
+                this.density = (Math.random() * 30) + 1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                if (mouse.x != null && mouse.y != null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    let forceDirectionX = dx / distance;
+                    let forceDirectionY = dy / distance;
+                    let maxDistance = mouse.radius;
+                    let force = (maxDistance - distance) / maxDistance;
+                    let directionX = forceDirectionX * force * this.density;
+                    let directionY = forceDirectionY * force * this.density;
+
+                    if (distance < mouse.radius) {
+                        this.x -= directionX;
+                        this.y -= directionY;
+                    } else {
+                        if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 10;
+                        if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 10;
+                    }
+                } else {
+                    if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 10;
+                    if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 10;
+                }
+                this.baseX += this.dx;
+                this.baseY += this.dy;
+                if (this.baseX < 0 || this.baseX > width) this.dx = -this.dx;
+                if (this.baseY < 0 || this.baseY > height) this.dy = -this.dy;
+                this.draw();
+            }
+        }
+
+        function init() {
+            particles = [];
+            // Divisor set to 15000 = Far fewer particles for better performance
+            let numberOfParticles = (width * height) / 15000; 
+            // Fainter colors for subtlety
+            let colors = ['rgba(59, 130, 246, 0.3)', 'rgba(139, 92, 246, 0.3)', 'rgba(219, 39, 119, 0.3)'];
+
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = Math.random() * (innerWidth - size * 2 - size * 2) + size * 2;
+                let y = Math.random() * (innerHeight - size * 2 - size * 2) + size * 2;
+                let dx = (Math.random() - 0.5) * 1; 
+                let dy = (Math.random() - 0.5) * 1; 
+                let color = colors[Math.floor(Math.random() * colors.length)];
+                particles.push(new Particle(x, y, dx, dy, size, color));
+            }
+        }
+
+        function connect() {
+            let opacityValue = 1;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) 
+                                 + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                    if (distance < (width / 7) * (height / 7)) {
+                        opacityValue = 1 - (distance / 20000);
+                        ctx.strokeStyle = `rgba(139, 92, 246, ${opacityValue * 0.2})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < particles.length; i++) particles[i].update();
+            connect();
+        }
+
+        init();
+        animate();
+    }
+}); // <-- END OF DOMContentLoaded LISTENER
 
 /* =========================================
    16. GOOGLE ANALYTICS 4
@@ -523,40 +669,3 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 document.addEventListener('keydown', (e) => {
     if (e.key === 'F12' || ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) || ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u'))) e.preventDefault();
 });
-/* =========================================
-   4. DIGITAL CLOCK WIDGET
-========================================= */
-const hourMinEl = document.getElementById('digital-hour-min');
-const ampmEl = document.getElementById('digital-ampm');
-const dateEl = document.getElementById('digital-date');
-
-if (hourMinEl && ampmEl && dateEl) {
-    function updateClock() {
-        const now = new Date();
-        
-        // Format Time (e.g., 05:50)
-        const timeString = now.toLocaleTimeString('en-US', { 
-            timeZone: 'Asia/Dhaka', 
-            hour: '2-digit', 
-            minute: '2-digit', 
-            hour12: true 
-        });
-        const [time, ampm] = timeString.split(' ');
-        
-        // Format Date (e.g., Sunday, July 26)
-        const dateString = now.toLocaleDateString('en-US', { 
-            timeZone: 'Asia/Dhaka', 
-            weekday: 'long', 
-            month: 'long', 
-            day: 'numeric' 
-        });
-
-        hourMinEl.textContent = time;
-        ampmEl.textContent = ampm;
-        dateEl.textContent = dateString;
-    }
-    
-    // Update the clock every second
-    setInterval(updateClock, 1000);
-    updateClock(); // Run immediately on load
-}
