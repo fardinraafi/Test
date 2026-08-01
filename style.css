@@ -851,7 +851,7 @@ body.dark-mode .footer-col-links a.btn {
 }
 
 /* =========================================
-   TECH & TOOLS TICKER (Upgraded)
+   TECH & TOOLS TICKER (Restored B&W to Color Hover)
 ========================================= */
 .ticker-wrap {
     width: 100%; overflow: hidden; background: rgba(255, 255, 255, 0.6);
@@ -861,19 +861,38 @@ body.dark-mode .footer-col-links a.btn {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); transition: all 0.3s ease;
 }
 body.dark-mode .ticker-wrap { background: rgba(30, 41, 59, 0.6); border-color: rgba(255, 255, 255, 0.1); }
+
 .ticker-track {
     display: flex; gap: 4rem; padding-left: 4rem;
     animation: scrollTicker 30s linear infinite; 
     white-space: nowrap; align-items: center; width: max-content;
 }
+
+/* Pauses the entire track when hovered */
 .ticker-track:hover { animation-play-state: paused; }
+
 .ticker-item {
     display: inline-flex; align-items: center; gap: 0.8rem;
     font-family: 'Syne', sans-serif; font-weight: 700;
-    color: var(--text-main); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--text-muted); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;
+    transition: color 0.3s;
 }
-body.dark-mode .ticker-item { color: #F1F5F9; }
-.ticker-item img { width: 28px; height: 28px; border-radius: 6px; object-fit: contain; }
+
+/* Black and white by default */
+.ticker-item img { 
+    width: 28px; height: 28px; border-radius: 6px; object-fit: contain; 
+    filter: grayscale(100%) opacity(0.6); 
+    transition: all 0.4s ease; 
+}
+
+/* Reveal color and scale up on hover */
+.ticker-item:hover img { 
+    filter: grayscale(0%) opacity(1); 
+    transform: scale(1.15); 
+}
+.ticker-item:hover { color: var(--text-main); }
+body.dark-mode .ticker-item:hover { color: #F1F5F9; }
+
 @keyframes scrollTicker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 /* =========================================
