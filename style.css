@@ -76,22 +76,22 @@ body.dark-mode .form-control:focus { border-color: var(--c1); box-shadow: 0 0 0 
     position: sticky; top: 1rem; z-index: 1000; max-width: 1200px; margin: 1rem auto 2rem auto; 
     background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); 
     border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 100px; 
-    padding: 0.5rem 1.2rem; /* SLIMMED DOWN: Reduced top/bottom padding */
+    padding: 0.5rem 1.2rem;
     display: flex; justify-content: space-between; align-items: center; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); transition: all 0.3s ease; 
 }
 .nav-brand { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--text-main); text-decoration: none; letter-spacing: -0.02em; }
-.nav-menu { display: flex; gap: 1.2rem; align-items: center; } /* Tighter gap */
+.nav-menu { display: flex; gap: 1.2rem; align-items: center; }
 
 /* ── Premium Nav Link Hover Effects (Sleeker) ── */
 .nav-menu a { 
     position: relative;
-    padding: 4px 10px; /* SLIMMED DOWN: Thinner pill */
+    padding: 4px 10px;
     border-radius: 6px;
     text-decoration: none; 
     color: var(--text-muted); 
     font-weight: 600; 
-    font-size: 0.9rem; /* Sharper text size */
+    font-size: 0.9rem;
     z-index: 1;
     transition: color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
 }
@@ -118,7 +118,7 @@ body.dark-mode .nav-menu a::before { background: rgba(255, 255, 255, 0.06); }
 .nav-menu a::after {
     content: '';
     position: absolute;
-    bottom: -4px; /* Tighter glowing dot position */
+    bottom: -4px;
     left: 50%;
     transform: translateX(-50%) scale(0);
     width: 4px;
@@ -141,18 +141,18 @@ body.dark-mode .nav-menu a::before { background: rgba(255, 255, 255, 0.06); }
 /* ── FIX: Side-by-Side Action Buttons ── */
 .nav-actions { 
     display: flex; 
-    flex-direction: row; /* Forces horizontal layout */
+    flex-direction: row;
     align-items: center; 
     gap: 0.8rem; 
-    flex-wrap: nowrap; /* PREVENTS VERTICAL STACKING */
+    flex-wrap: nowrap;
 }
 
 .nav-actions .btn-primary { 
-    padding: 8px 20px; /* Slimmer button */
+    padding: 8px 20px;
     font-size: 0.85rem; 
     position: relative;
     overflow: hidden;
-    white-space: nowrap; /* Prevents button text from breaking into two lines */
+    white-space: nowrap;
 }
 
 /* Shine Effect for Let's Talk Button */
@@ -171,6 +171,7 @@ body.dark-mode .nav-menu a::before { background: rgba(255, 255, 255, 0.06); }
     animation: btnShine 0.6s ease-out forwards;
 }
 @keyframes btnShine { 100% { left: 200%; } }
+
 /* ── 3D LIQUID THEME TOGGLE ── */
 .theme-toggle-track {
     position: relative; width: 90px; height: 36px; background: rgba(0, 0, 0, 0.08);
@@ -213,6 +214,8 @@ body.dark-mode .icon-sun { opacity: 1; transform: rotate(0deg) scale(1); }
 .layout-wrapper { 
     max-width: 1200px; margin: 0 auto; padding: 2rem 2rem 4rem; 
     display: grid; grid-template-columns: 320px 1fr; gap: 3rem; align-items: start;
+    position: relative;
+    z-index: 2; /* Forces all content above the canvas */
 }
 .layout-wrapper.single-column { display: flex; flex-direction: column; max-width: 1100px; align-items: stretch; width: 100%; margin: 0 auto; }
 .layout-wrapper.blog-column { max-width: 800px; display: block; }
@@ -246,6 +249,7 @@ h1 { font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800; line-
 }
 .btn-primary { background: linear-gradient(135deg, var(--c1), var(--c2)); color: #FFF; box-shadow: 0 4px 15px rgba(37,99,235,0.3); }
 .btn-primary:hover { box-shadow: 0 6px 20px rgba(37,99,235,0.4); transform: translateY(-2px); }
+
 /* Sleek Liquid Sweep for Outline Buttons (LinkedIn, QR Code, etc.) */
 .btn-outline { 
     position: relative;
@@ -311,6 +315,7 @@ body.dark-mode .btn-outline {
     border: 1px solid rgba(124,58,237,0.15); border-radius: 8px; color: var(--text-muted); font-weight: 500; transition: all 0.3s ease; 
 }
 .tag:hover { background: var(--c1); color: #FFF; border-color: var(--c1); transform: translateY(-2px); }
+
 /* =========================================
    DIGITAL CLOCK WIDGET
 ========================================= */
@@ -372,7 +377,7 @@ body:not(.dark-mode) .clock-widget {
 .ampm-text {
     font-size: 1.2rem;
     font-weight: 700;
-    color: var(--c1); /* Adds a pop of your primary brand color */
+    color: var(--c1);
     margin-left: 4px;
 }
 
@@ -401,7 +406,6 @@ body:not(.dark-mode) .clock-widget {
 /* =========================================
    INTERACTIVE TIMELINE (EXPERIENCE & EDU)
 ========================================= */
-/* Focus effect: Dims other items when one is hovered */
 .glass-card:has(.timeline-item:hover) .timeline-item:not(:hover) {
     opacity: 0.4;
     filter: grayscale(80%);
@@ -415,7 +419,6 @@ body:not(.dark-mode) .clock-widget {
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* The Timeline Node */
 .timeline-item::before { 
     content: ''; 
     position: absolute; 
@@ -430,7 +433,6 @@ body:not(.dark-mode) .clock-widget {
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Hover Magic: Node Glows & Track Highlights */
 .timeline-item:hover {
     border-left-color: var(--c1);
     transform: translateX(8px);
@@ -477,7 +479,6 @@ body:not(.dark-mode) .clock-widget {
     transition: transform 0.3s ease;
 }
 
-/* Custom sleek arrow instead of standard bullet */
 .timeline-item li::before { 
     content: '▹'; 
     position: absolute; 
@@ -534,7 +535,7 @@ body:not(.dark-mode) .clock-widget {
 
 /* Scroll to top */
 .scroll-to-top { 
-    position: fixed; bottom: 30px; right: 180px; /* Pushed to the left of Fifi */
+    position: fixed; bottom: 30px; right: 180px;
     background: linear-gradient(135deg, var(--c1), var(--c2)); 
     color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
     font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 15px rgba(37,99,235,0.3); opacity: 0; visibility: hidden; 
@@ -567,6 +568,68 @@ body:not(.dark-mode) .clock-widget {
 .blog-column a { color: var(--c1); text-decoration: none; font-weight: bold; }
 .blog-column a:hover { text-decoration: underline; }
 .meta-info { font-size: 0.9rem; color: #64748B; font-weight: 600; margin-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 1rem; }
+
+/* =========================================
+   BLOG MARQUEE UPGRADE (From index.html)
+========================================= */
+.blog-marquee-wrap {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0; 
+    margin: -20px 0;
+    position: relative;
+}
+.blog-marquee-wrap::before, .blog-marquee-wrap::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; pointer-events: none;
+}
+.blog-marquee-wrap::before { left: 0; background: linear-gradient(to right, rgba(255,255,255,0.8), transparent); }
+.blog-marquee-wrap::after { right: 0; background: linear-gradient(to left, rgba(255,255,255,0.8), transparent); }
+body.dark-mode .blog-marquee-wrap::before { background: linear-gradient(to right, rgba(30, 41, 59, 0.9), transparent); }
+body.dark-mode .blog-marquee-wrap::after { background: linear-gradient(to left, rgba(30, 41, 59, 0.9), transparent); }
+
+.blog-marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: blogMarqueeScroll 45s linear infinite; 
+}
+.blog-marquee-track:hover { animation-play-state: paused; }
+
+@keyframes blogMarqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-blog-card {
+    width: 320px; 
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    transform: translateY(0);
+}
+body.dark-mode .marquee-blog-card { background: rgba(30, 41, 59, 0.6); border-color: rgba(255, 255, 255, 0.1); color: #F1F5F9; }
+
+.marquee-blog-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--c2);
+    box-shadow: 0 0 20px 2px rgba(124, 58, 237, 0.4), 0 0 40px 5px rgba(37, 99, 235, 0.2);
+    z-index: 10;
+}
+
+.marquee-blog-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.marquee-blog-content { padding: 1.5rem; }
+.marquee-blog-date { font-size: 0.8rem; color: var(--c1); font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.marquee-blog-title { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.3; }
+.marquee-blog-excerpt { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+body.dark-mode .marquee-blog-excerpt { color: #94A3B8; }
 
 /* =========================================
    GALLERY & CERTIFICATES COMPONENTS
@@ -786,22 +849,33 @@ body.dark-mode .footer-col-links a.btn {
     transform: translateY(-3px) !important;
     border-color: transparent !important;
 }
-/* ── TECH & TOOLS TICKER ── */
-.ticker-wrap { width: 100%; overflow: hidden; background: rgba(255,255,255,0.4); border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); padding: 1.5rem 0; margin: 0 0 2rem 0; backdrop-filter: blur(10px); }
-body.dark-mode .ticker-wrap { background: rgba(15, 23, 42, 0.4); border-color: rgba(255,255,255,0.05); }
-.ticker-track { display: flex; width: max-content; animation: tickerScroll 20s linear infinite; }
-.ticker-track:hover { animation-play-state: paused; }
-.ticker-item { display: flex; align-items: center; gap: 12px; padding: 0 3rem; font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text-muted); transition: color 0.3s; cursor: default; }
-.ticker-item img { height: 28px; width: 28px; object-fit: contain; filter: grayscale(100%) opacity(0.6); transition: all 0.4s ease; }
-.ticker-item:hover img { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
-.ticker-item:hover { color: var(--text-main); }
 
-/* The animation moves the track left by exactly 50%, 
-   then instantly resets, creating an infinite loop */
-@keyframes tickerScroll { 
-  0% { transform: translateX(0); } 
-  100% { transform: translateX(-50%); } 
+/* =========================================
+   TECH & TOOLS TICKER (Upgraded)
+========================================= */
+.ticker-wrap {
+    width: 100%; overflow: hidden; background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 16px;
+    padding: 1.5rem 0; margin-bottom: 0; display: flex;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); transition: all 0.3s ease;
 }
+body.dark-mode .ticker-wrap { background: rgba(30, 41, 59, 0.6); border-color: rgba(255, 255, 255, 0.1); }
+.ticker-track {
+    display: flex; gap: 4rem; padding-left: 4rem;
+    animation: scrollTicker 30s linear infinite; 
+    white-space: nowrap; align-items: center; width: max-content;
+}
+.ticker-track:hover { animation-play-state: paused; }
+.ticker-item {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    color: var(--text-main); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;
+}
+body.dark-mode .ticker-item { color: #F1F5F9; }
+.ticker-item img { width: 28px; height: 28px; border-radius: 6px; object-fit: contain; }
+@keyframes scrollTicker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
 /* =========================================
    TIMELINE LOGO ANIMATIONS (NEW!)
 ========================================= */
@@ -821,7 +895,6 @@ body.dark-mode .ticker-wrap { background: rgba(15, 23, 42, 0.4); border-color: r
     max-width: none; 
     transform-origin: center center;
     opacity: 1; /* Made fully visible */
-    /* Removed the grayscale filter completely! */
 }
 body:not(.dark-mode) .et-logo img { opacity: 1; }
 /* ODD ITEMS: Text on Left, Logo on Right */
@@ -867,7 +940,7 @@ body:not(.dark-mode) .et-logo img { opacity: 1; }
 
 /* Base Image Setup (No Rotation) */
 .edu-logo img {
-    width: 220px; /* Increased from 150px to make them much more prominent */
+    width: 220px;
     max-width: none; 
     object-fit: contain;
     opacity: 0.85; 
@@ -878,7 +951,7 @@ body:not(.dark-mode) .edu-logo img { opacity: 0.9; }
 .et-item:nth-child(odd) .edu-logo {
     left: 100%; 
     justify-content: flex-start;
-    padding-left: 6rem; /* Increased from 3rem to push it further from the line */
+    padding-left: 6rem;
     transform: translateY(40px);
 }
 
@@ -886,7 +959,7 @@ body:not(.dark-mode) .edu-logo img { opacity: 0.9; }
 .et-item:nth-child(even) .edu-logo {
     right: 100%; 
     justify-content: flex-end;
-    padding-right: 6rem; /* Increased from 3rem to push it further from the line */
+    padding-right: 6rem;
     transform: translateY(40px);
 }
 
@@ -895,6 +968,21 @@ body:not(.dark-mode) .edu-logo img { opacity: 0.9; }
     opacity: 1;
     transform: translateY(0); 
 }
+
+/* =========================================
+   Z-INDEX ARCHITECTURE FIX
+========================================= */
+#neural-canvas {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none; 
+    opacity: 0.7;
+}
+
 /* =========================================
    📱 MOBILE OPTIMIZATION MASTER-FIX 📱
 ========================================= */
@@ -944,16 +1032,15 @@ body:not(.dark-mode) .edu-logo img { opacity: 0.9; }
 
     .contact-banner-wrapper { display: none !important; }
     
-    /* Hides the new logos on mobile so they don't squish the screen */
     .et-logo { display: none !important; } 
-   .edu-logo { display: none !important; }
+    .edu-logo { display: none !important; }
 }
 /* =========================================
    SMOOTH PAGE TRANSITIONS (APP FEEL)
 ========================================= */
 body {
     animation: fadeIn 0.4s ease-out forwards;
-    opacity: 0; /* Starts invisible, then fades in */
+    opacity: 0; 
 }
 
 body.fade-out {
@@ -967,7 +1054,7 @@ body.fade-out {
 }
 
 /* =========================================
-   11. ADVANCED MICRO-INTERACTIONS
+   ADVANCED MICRO-INTERACTIONS
 ========================================= */
 
 /* Reading Progress Bar */
@@ -981,9 +1068,8 @@ body.fade-out {
 }
 
 /* =========================================
-   PREMIUM STUDIO AESTHETICS (GRAIN, PRELOADER, VECTORS, SPOTLIGHT)
+   PREMIUM STUDIO AESTHETICS 
 ========================================= */
-
 
 /* 2. Executive Preloader */
 #preloader {
@@ -1013,7 +1099,6 @@ body.fade-out {
     opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 0;
 }
 .glass-card:hover::before, .stat-box:hover::before, .highlight-card:hover::before { opacity: 1; }
-/* Push content above the spotlight */
 .glass-card > *, .stat-box > *, .highlight-card > * { position: relative; z-index: 1; }
 /* 4. Floating Geometric Vectors */
 .geo-shape {
@@ -1044,13 +1129,13 @@ body.fade-out {
     position: relative;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     margin-bottom: 0.5rem;
-    margin-top: 1.5rem; /* Added to create space from the buttons above */
+    margin-top: 1.5rem;
 }
 
 .live-status-widget:hover {
     background: rgba(255, 255, 255, 0.08);
     transform: translateY(-2px);
-    border-color: rgba(124, 58, 237, 0.4); /* Subtle purple glow on hover */
+    border-color: rgba(124, 58, 237, 0.4); 
 }
 
 /* The Glowing Radar Dot */
@@ -1058,7 +1143,7 @@ body.fade-out {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #10B981; /* Emerald Green */
+    background-color: #10B981; 
     box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
     position: relative;
 }
@@ -1117,15 +1202,15 @@ body.fade-out {
     top: 0; left: 0;
     width: 100vw; height: 100vh;
     pointer-events: none; 
-    z-index: 1; /* Keeps them behind your main content */
+    z-index: 1;
     overflow: hidden;
 }
 
 .floating-glass {
     position: absolute;
     will-change: transform; 
-    opacity: 0.85; /* Restored the glassy transparency */
-    border-radius: 20px; /* Rounds the corners of the image smoothly */
+    opacity: 0.85; 
+    border-radius: 20px; 
 }
 
 /* Specific Sizes, Positions, and Blurs for Depth of Field */
@@ -1135,7 +1220,6 @@ body.fade-out {
 .fg-4 { top: 75%; right: 6%; width: 100px; filter: blur(3px); }
 .fg-5 { top: 45%; right: 2%; width: 60px; filter: blur(6px); opacity: 0.6; }
 
-/* Hide floating glass icons on mobile devices (screens smaller than 1024px) */
 @media (max-width: 768px) {
     .glass-parallax-container {
         display: none !important;
@@ -1156,8 +1240,8 @@ body.fade-out {
 .chat-bot-btn:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(124, 58, 237, 0.5); }
 
 .chat-bot-modal {
-    position: fixed; bottom: 85px; right: 30px; /* Dropped down slightly to match the pill button */
-    width: 330px; max-width: 90vw; /* Narrower width */
+    position: fixed; bottom: 85px; right: 30px;
+    width: 330px; max-width: 90vw;
     z-index: 10000; display: flex; flex-direction: column; 
     padding: 0 !important; 
     opacity: 0; visibility: hidden; 
@@ -1167,7 +1251,7 @@ body.fade-out {
 
 .chat-header {
     display: flex; justify-content: space-between; align-items: center; 
-    padding: 1rem 1.2rem; border-bottom: 1px solid rgba(0,0,0,0.05); /* Tighter padding */
+    padding: 1rem 1.2rem; border-bottom: 1px solid rgba(0,0,0,0.05); 
     background: rgba(255,255,255,0.4);
 }
 body.dark-mode .chat-header { background: rgba(15, 23, 42, 0.4); border-bottom-color: rgba(255,255,255,0.05); }
@@ -1180,7 +1264,7 @@ body.dark-mode .chat-header { background: rgba(15, 23, 42, 0.4); border-bottom-c
 .close-chat { background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; transition: color 0.2s; line-height: 1; }
 .close-chat:hover { color: var(--c3); transform: scale(1.1); }
 
-.chat-scroll-area { max-height: 360px; overflow-y: auto; padding: 1.2rem; scroll-behavior: smooth; } /* Shorter max-height so it doesn't hit the top of laptops */
+.chat-scroll-area { max-height: 360px; overflow-y: auto; padding: 1.2rem; scroll-behavior: smooth; }
 .chat-scroll-area::-webkit-scrollbar { width: 4px; }
 .chat-scroll-area::-webkit-scrollbar-thumb { background: rgba(37, 99, 235, 0.2); border-radius: 10px; }
 
@@ -1190,24 +1274,22 @@ body.dark-mode .chat-header { background: rgba(15, 23, 42, 0.4); border-bottom-c
 .chat-greeting h2 { font-size: 1.3rem; margin-bottom: 0.3rem; }
 .chat-greeting p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
 
-.chat-options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; } /* Tighter gap */
+.chat-options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 
 .chat-opt-btn {
     background: rgba(255, 255, 255, 0.6); border: 1px solid rgba(0,0,0,0.05); 
-    color: var(--text-main); padding: 0.7rem 0.6rem; border-radius: 10px; font-size: 0.8rem; /* Smaller padding and text */
+    color: var(--text-main); padding: 0.7rem 0.6rem; border-radius: 10px; font-size: 0.8rem;
     text-align: left; cursor: pointer; transition: all 0.3s ease; 
     font-family: 'DM Sans', sans-serif; line-height: 1.3; font-weight: 500;
 }
 body.dark-mode .chat-opt-btn { background: rgba(30, 41, 59, 0.5); border-color: rgba(255,255,255,0.05); }
-
-/* Forces the text to sit above the spotlight */
 .chat-opt-btn span { position: relative; z-index: 2; pointer-events: none; }
 
 .chat-opt-btn:hover { background: #fff; border-color: var(--c1); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(37,99,235,0.1); }
 body.dark-mode .chat-opt-btn:hover { background: rgba(30, 41, 59, 0.9); border-color: var(--c1); }
 
 .chat-log { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1rem; }
-.chat-bubble { max-width: 85%; padding: 0.7rem 1rem; border-radius: 14px; font-size: 0.85rem; line-height: 1.4; animation: fadeInUp 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; } /* Scaled down bubbles */
+.chat-bubble { max-width: 85%; padding: 0.7rem 1rem; border-radius: 14px; font-size: 0.85rem; line-height: 1.4; animation: fadeInUp 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; }
 .user-bubble { background: linear-gradient(135deg, var(--c1), var(--c2)); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2); }
 .ai-bubble { background: rgba(255,255,255,0.8); color: var(--text-main); border: 1px solid rgba(0,0,0,0.05); align-self: flex-start; border-bottom-left-radius: 4px; }
 body.dark-mode .ai-bubble { background: rgba(30, 41, 59, 0.8); border-color: rgba(255,255,255,0.1); }
@@ -1215,14 +1297,15 @@ body.dark-mode .ai-bubble { background: rgba(30, 41, 59, 0.8); border-color: rgb
 .reset-chat-btn { display: none; margin: 1rem auto 0; background: none; border: 1px solid var(--text-light); color: var(--text-muted); padding: 5px 14px; border-radius: 100px; font-size: 0.75rem; cursor: pointer; transition: all 0.2s; font-weight: 600;}
 .reset-chat-btn:hover { background: var(--text-main); color: var(--bg-page); border-color: var(--text-main); }
 body.dark-mode .reset-chat-btn:hover { background: #F1F5F9; color: #0F172A; }
+
 /* =========================================
    18. EPIC SAAS-STYLE FOOTER CTA
 ========================================= */
 .final-cta-section {
     position: relative;
     width: 100vw;
-    margin-left: calc(-50vw + 50%); /* Forces infinite edge-to-edge width */
-    padding: 10rem 2rem; /* Increased padding for more breathing room */
+    margin-left: calc(-50vw + 50%); 
+    padding: 10rem 2rem; 
     background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.6) 40%, rgba(15, 23, 42, 0.95)); 
     background-image: 
         radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
@@ -1247,7 +1330,6 @@ body:not(.dark-mode) .final-cta-section {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Ambient background glow for the CTA */
 .final-cta-section::before {
     content: '';
     position: absolute;
@@ -1258,28 +1340,23 @@ body:not(.dark-mode) .final-cta-section {
     z-index: 1; pointer-events: none;
 }
 
-/* Massive Faded Watermark */
 .watermark-bg {
     position: absolute;
-    top: 65%; /* ⬇️ Changed from 50% to move it down */
+    top: 65%; 
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Syne', sans-serif;
     font-size: 18vw; 
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.06); /* 🔆 Changed from 0.02 to 0.06 for higher opacity */
+    color: rgba(255, 255, 255, 0.06); 
     pointer-events: none;
     white-space: nowrap;
     user-select: none;
     z-index: 0;
     letter-spacing: 0.02em;
 }
-
-body:not(.dark-mode) .watermark-bg { color: rgba(0, 0, 0, 0.06); /* 🔆 Increased opacity for Light Mode too */ }
-
 body:not(.dark-mode) .watermark-bg { color: rgba(0, 0, 0, 0.03); }
 
-/* Content Wrapper */
 .final-cta-content {
     position: relative;
     z-index: 3;
@@ -1296,10 +1373,8 @@ body:not(.dark-mode) .watermark-bg { color: rgba(0, 0, 0, 0.03); }
     line-height: 1.1;
     text-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
-
 body:not(.dark-mode) .final-cta-title { color: #0F172A; text-shadow: none; }
 
-/* Premium Solid Button */
 .final-cta-btn {
     padding: 18px 48px;
     font-size: 1.1rem;
@@ -1322,7 +1397,6 @@ body:not(.dark-mode) .final-cta-title { color: #0F172A; text-shadow: none; }
     content: '➔';
     transition: transform 0.3s ease;
 }
-
 body:not(.dark-mode) .final-cta-btn { background: #0F172A; color: #F8FAFC; }
 
 .final-cta-btn:hover {
@@ -1342,7 +1416,7 @@ body:not(.dark-mode) .final-cta-btn { background: #0F172A; color: #F8FAFC; }
     left: 0;
     width: 100vw;
     height: 1px;
-    background: transparent; /* Removed the visible track line! */
+    background: transparent;
     z-index: 2;
 }
 
@@ -1363,19 +1437,17 @@ body:not(.dark-mode) .glowing-line-container { background: transparent; }
 .orb-left-right {
     left: -300px;
     background: linear-gradient(90deg, transparent, var(--c1), #fff);
-    animation: meteorSweepLR 10s linear infinite; /* Smooth, constant, slow speed */
+    animation: meteorSweepLR 10s linear infinite; 
     justify-content: flex-end; 
 }
 
 .orb-right-left {
     right: -300px;
     background: linear-gradient(270deg, transparent, var(--c2), #fff);
-    animation: meteorSweepRL 10s linear infinite; /* Smooth, constant, slow speed */
-    /* Removed animation delay so they start at the exact same time */
+    animation: meteorSweepRL 10s linear infinite; 
     justify-content: flex-start; 
 }
 
-/* The brilliant glowing circle at the head of the light */
 .orb-head {
     width: 6px;
     height: 6px;
@@ -1402,7 +1474,6 @@ body:not(.dark-mode) .glowing-line-container { background: transparent; }
     .final-cta-title { font-size: 2.5rem; }
     .watermark-bg { font-size: 24vw; }
     .final-cta-section { padding: 6rem 1.5rem; }
-    /* Push the lines further out on mobile to give text breathing room */
     .top-line { top: 12%; }
     .bottom-line { bottom: 12%; }
 }
@@ -1411,8 +1482,8 @@ body:not(.dark-mode) .glowing-line-container { background: transparent; }
 ========================================= */
 .contact-banner-wrapper {
     width: 100vw;
-    margin-left: calc(-50vw + 50%); /* Forces true edge-to-edge full width */
-    margin-top: 0rem; /* Gives a little breathing room under the nav */
+    margin-left: calc(-50vw + 50%); 
+    margin-top: 0rem; 
     margin-bottom: 0rem;
     overflow: hidden;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -1426,70 +1497,64 @@ body:not(.dark-mode) .glowing-line-container { background: transparent; }
     object-fit: cover;
 }
 
-/* Make it invisible on mobile devices (tablets and phones) */
 @media (max-width: 900px) {
     .contact-banner-wrapper {
         display: none !important;
     }
 }
 /* =========================================
-           THE EPIC LASER TIMELINE
-        ========================================= */
-        .epic-timeline { position: relative; margin: 2rem 0; padding: 2rem 0; }
-        
-        /* The faint background track */
-        .epic-timeline::before { 
-            content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; 
-            background: rgba(0, 0, 0, 0.05); transform: translateX(-50%); border-radius: 4px;
-        }
-        body.dark-mode .epic-timeline::before { background: rgba(255, 255, 255, 0.05); }
+   THE EPIC LASER TIMELINE
+========================================= */
+.epic-timeline { position: relative; margin: 2rem 0; padding: 2rem 0; }
 
-      .epic-timeline-laser {
-            position: absolute; left: 50%; top: 0; width: 4px; height: 100%;
-            background: linear-gradient(to bottom, var(--c1), var(--c2));
-            transform: translateX(-50%) scaleY(0);
-            transform-origin: top;
-            border-radius: 4px;
-            box-shadow: 0 0 15px var(--c1);
-            will-change: transform;
-            z-index: 1;
-        }
+.epic-timeline::before { 
+    content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; 
+    background: rgba(0, 0, 0, 0.05); transform: translateX(-50%); border-radius: 4px;
+}
+body.dark-mode .epic-timeline::before { background: rgba(255, 255, 255, 0.05); }
 
-        .et-item { width: 50%; position: relative; margin-bottom: 3.5rem; opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
-        .et-item.animate-in { opacity: 1; transform: translateY(0); }
-        
-        .et-item:nth-child(odd) { left: 0; padding-right: 3rem; }
-        .et-item:nth-child(even) { left: 50%; padding-left: 3rem; }
-        
-        /* Glowing Nodes */
-        .et-dot { 
-            position: absolute; top: 1.5rem; width: 24px; height: 24px; background: var(--bg-page); 
-            border: 4px solid var(--c1); border-radius: 50%; z-index: 2; box-shadow: 0 0 0 rgba(37,99,235,0); 
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
-        }
-        .et-item:nth-child(odd) .et-dot { right: -12px; }
-        .et-item:nth-child(even) .et-dot { left: -12px; border-color: var(--c2); }
-        
-        /* Magnetic Card Hover Effect */
-        .et-content { 
-            background: rgba(255,255,255,0.7); padding: 2rem; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05); 
-            backdrop-filter: blur(12px); box-shadow: 0 10px 25px rgba(0,0,0,0.03); position: relative; 
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-        }
-        body.dark-mode .et-content { background: rgba(30,41,59,0.6); border-color: rgba(255,255,255,0.05); }
-        
-        /* The Magic Hover Trigger */
-        .et-item:hover .et-content { 
-            transform: scale(1.03) translateY(-8px); 
-            border-color: var(--c1); 
-            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15);
-            z-index: 10;
-        }
-        
-        /* Make the node explode with light when the card is hovered */
-        .et-item:hover .et-dot {
-            transform: scale(1.5);
-            background: var(--c1);
-            border-color: var(--c1);
-            box-shadow: 0 0 20px var(--c1), 0 0 0 8px rgba(124, 58, 237, 0.2);
-        }
+.epic-timeline-laser {
+    position: absolute; left: 50%; top: 0; width: 4px; height: 100%;
+    background: linear-gradient(to bottom, var(--c1), var(--c2));
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top;
+    border-radius: 4px;
+    box-shadow: 0 0 15px var(--c1);
+    will-change: transform;
+    z-index: 1;
+}
+
+.et-item { width: 50%; position: relative; margin-bottom: 3.5rem; opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.et-item.animate-in { opacity: 1; transform: translateY(0); }
+
+.et-item:nth-child(odd) { left: 0; padding-right: 3rem; }
+.et-item:nth-child(even) { left: 50%; padding-left: 3rem; }
+
+.et-dot { 
+    position: absolute; top: 1.5rem; width: 24px; height: 24px; background: var(--bg-page); 
+    border: 4px solid var(--c1); border-radius: 50%; z-index: 2; box-shadow: 0 0 0 rgba(37,99,235,0); 
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+}
+.et-item:nth-child(odd) .et-dot { right: -12px; }
+.et-item:nth-child(even) .et-dot { left: -12px; border-color: var(--c2); }
+
+.et-content { 
+    background: rgba(255,255,255,0.7); padding: 2rem; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05); 
+    backdrop-filter: blur(12px); box-shadow: 0 10px 25px rgba(0,0,0,0.03); position: relative; 
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+body.dark-mode .et-content { background: rgba(30,41,59,0.6); border-color: rgba(255,255,255,0.05); }
+
+.et-item:hover .et-content { 
+    transform: scale(1.03) translateY(-8px); 
+    border-color: var(--c1); 
+    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15);
+    z-index: 10;
+}
+
+.et-item:hover .et-dot {
+    transform: scale(1.5);
+    background: var(--c1);
+    border-color: var(--c1);
+    box-shadow: 0 0 20px var(--c1), 0 0 0 8px rgba(124, 58, 237, 0.2);
+}
