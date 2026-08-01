@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <!-- SEO Primary Tags -->
+   <!-- SEO Primary Tags -->
     <title>Fardin Rahman Khan Raafi | Marketing Executive</title>
     <meta name="description" content="Official portfolio of Fardin Rahman Khan Raafi. Marketing Executive specializing in B2B sales, brand strategy, and growth operations in Dhaka.">
     <meta name="keywords" content="Fardin Rahman Khan Raafi, Fardin Raafi, Fardin Rahman, Marketing Executive, Growth Associate, B2B Sales, Graphic Designer, Dhaka, BUBT">
     <meta name="author" content="Fardin Rahman Khan Raafi">
-    
+    <meta name="keywords" content="Fardin Rahman Khan Raafi, Fardin Raafi, Fardin Rahman, Marketing Executive, Growth Associate, B2B Sales, Graphic Designer, Dhaka, BUBT">
+    <meta name="author" content="Fardin Rahman Khan Raafi">
     <!-- Favicon / Site Icon -->
     <link rel="icon" type="image/png" href="/misc_img/site_favicon.png">
     <link rel="apple-touch-icon" href="/misc_img/site_favicon.png">
     
-    <!-- Google Search Console Verification -->
+   <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="YxKX2DZgEMnJ-_e98H863nNIqMUPVLGQvdMnSdHa6Kg" />
-    
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Fardin Rahman Khan Raafi | Portfolio">
     <meta property="og:description" content="Explore the portfolio, leadership, and professional experience of Fardin Rahman Khan Raafi.">
@@ -24,8 +24,12 @@
     <meta property="og:url" content="https://fardinraafi.com">
     <meta name="p:domain_verify" content="a8bdde9ae8654b4b558ad6ea9b73afbd"/>
     
-    <!-- OPEN GRAPH / LINKEDIN / FACEBOOK -->
+  <!-- OPEN GRAPH / LINKEDIN / FACEBOOK -->
+    <meta property="og:type" content="website">
     <meta property="og:site_name" content="Fardin Rahman Khan Raafi">
+    <meta property="og:url" content="https://fardinraafi.vercel.app/">
+    <meta property="og:title" content="Fardin Rahman Khan Raafi | Growth Associate">
+    <meta property="og:description" content="Marketing Executive with 1 years of B2B sales experience, specializing in CRM pipelines, outreach, and brand strategy.">
     <meta property="og:image" content="https://fardinraafi.vercel.app/misc_img/og-preview.jpg">
 
     <!-- TWITTER / X -->
@@ -44,9 +48,112 @@
     
     <link rel="stylesheet" href="/style.css">
     
+    <style>
+        /* Top Tech Ticker */
+        .ticker-wrap {
+            width: 100%; overflow: hidden; background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 16px;
+            padding: 1.5rem 0; margin-bottom: 0; display: flex;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); transition: all 0.3s ease;
+        }
+        body.dark-mode .ticker-wrap { background: rgba(30, 41, 59, 0.6); border-color: rgba(255, 255, 255, 0.1); }
+        .ticker-track {
+            display: flex; gap: 4rem; padding-left: 4rem;
+            animation: scrollTicker 30s linear infinite; 
+            white-space: nowrap; align-items: center; width: max-content;
+        }
+        .ticker-track:hover { animation-play-state: paused; }
+        .ticker-item {
+            display: inline-flex; align-items: center; gap: 0.8rem;
+            font-family: 'Syne', sans-serif; font-weight: 700;
+            color: var(--text-main); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        body.dark-mode .ticker-item { color: #F1F5F9; }
+        .ticker-item img { width: 28px; height: 28px; border-radius: 6px; object-fit: contain; }
+        @keyframes scrollTicker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Blog Marquee Upgrade */
+        .blog-marquee-wrap {
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0; /* Padding allows the hover glow to not get clipped */
+            margin: -20px 0;
+            position: relative;
+        }
+        /* Gradient fade effect on the left and right edges */
+        .blog-marquee-wrap::before, .blog-marquee-wrap::after {
+            content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; pointer-events: none;
+        }
+        .blog-marquee-wrap::before { left: 0; background: linear-gradient(to right, rgba(255,255,255,0.8), transparent); }
+        .blog-marquee-wrap::after { right: 0; background: linear-gradient(to left, rgba(255,255,255,0.8), transparent); }
+        body.dark-mode .blog-marquee-wrap::before { background: linear-gradient(to right, rgba(30, 41, 59, 0.9), transparent); }
+        body.dark-mode .blog-marquee-wrap::after { background: linear-gradient(to left, rgba(30, 41, 59, 0.9), transparent); }
+
+        .blog-marquee-track {
+            display: flex;
+            gap: 1.5rem;
+            width: max-content;
+            animation: blogMarqueeScroll 45s linear infinite; /* 45s for a nice slow reading speed */
+        }
+        .blog-marquee-track:hover { animation-play-state: paused; }
+        
+        @keyframes blogMarqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .marquee-blog-card {
+            width: 320px; /* Fixed width so it looks uniform */
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.9);
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            transform: translateY(0);
+        }
+        body.dark-mode .marquee-blog-card { background: rgba(30, 41, 59, 0.6); border-color: rgba(255, 255, 255, 0.1); color: #F1F5F9; }
+        
+        /* 🚀 THE RADIANT LIGHT POP-UP HOVER EFFECT */
+        .marquee-blog-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--c2);
+            /* Glowing borders combining Blue and Purple */
+            box-shadow: 0 0 20px 2px rgba(124, 58, 237, 0.4), 0 0 40px 5px rgba(37, 99, 235, 0.2);
+            z-index: 10;
+        }
+        
+        .marquee-blog-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .marquee-blog-content { padding: 1.5rem; }
+        .marquee-blog-date { font-size: 0.8rem; color: var(--c1); font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .marquee-blog-title { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.3; }
+        .marquee-blog-excerpt { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        body.dark-mode .marquee-blog-excerpt { color: #94A3B8; }
+
+        /* 🚀 Z-INDEX ARCHITECTURE FIX FOR INTERACTIVE CANVAS */
+        .layout-wrapper {
+            position: relative;
+            z-index: 2; /* Forces all content above the canvas */
+        }
+        #neural-canvas {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0; /* Stays safely in the background */
+            pointer-events: none; 
+            opacity: 0.7; /* Subtler integration for home page */
+        }
+    </style>
     <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
-    
     <!-- Google Knowledge Graph / Schema Markup -->
     <script type="application/ld+json">
     {
@@ -69,7 +176,6 @@
     </script>
 </head>
 <body class="dark-mode">
-
 <!-- =========================================
    EXECUTIVE PRELOADER (FRKR)
 ========================================= -->
@@ -105,7 +211,7 @@
     </div>
     <div class="nav-actions">
         <a href="/contact.html" class="btn btn-primary">Let's Talk</a>
-        <button id="themeToggle" class="theme-toggle-track" aria-label="Toggle Dark Mode">
+      <button id="themeToggle" class="theme-toggle-track" aria-label="Toggle Dark Mode">
             <span class="theme-text text-dark">Dark</span>
             <span class="theme-text text-light">Light</span>
             <div class="theme-liquid-bubble">
@@ -135,6 +241,7 @@
                 <span class="tag">FMCG</span>
             </div>
             
+<!-- CLEAN DIGITAL CLOCK WIDGET -->
             <div class="clock-widget">
                 <div class="clock-header">
                     <span class="pulse-dot-small"></span> LOCAL TIME • DHAKA
@@ -401,7 +508,7 @@
                         <div class="marquee-blog-content">
                             <div class="marquee-blog-date">Career Advice</div>
                             <h2 class="marquee-blog-title">AI Certification এর আসল খেলা: হাইপ VS স্কিলসেট</h2>
-                            <p class="marquee-blog-excerpt">কেন জাস্ট "AI এনথুসিয়াস্ট" লেখা থাকলে কেউ পাত্তা দেবেজীবী না এবং টপ ৭টি ফ্রি সার্টিফিকেশন কোর্স যা আপনার মার্কেট ডিমান্ড বাড়াবে।</p>
+                            <p class="marquee-blog-excerpt">কেন জাস্ট "AI এনথুসিয়াস্ট" লেখা থাকলে কেউ পাত্তা দেবে না এবং টপ ৭টি ফ্রি সার্টিফিকেশন কোর্স যা আপনার মার্কেট ডিমান্ড বাড়াবে।</p>
                         </div>
                     </a>
 
@@ -440,6 +547,7 @@
                             <p class="marquee-blog-excerpt">Learn what Agentic AI means, how Claude Sonnet 5 works, and why autonomous workflows are shaping the future of business.</p>
                         </div>
                     </a>
+
                 </div>
             </div>
             
@@ -546,12 +654,134 @@
     
     <button class="reset-chat-btn" id="resetChatBtn">Restart Conversation</button>
 </div>
-
 <!-- Footer injected by main.js -->
 <footer class="site-footer"></footer>
 
 <button id="scrollTopBtn" class="scroll-to-top" aria-label="Scroll to top">↑</button>
 <script src="/main.js"></script>
+
+<!-- PAGE SPECIFIC BACKGROUND PHYSICS ENGINE (SUBTLE PERFORMANCE VERSION) -->
+<script>
+    const canvas = document.getElementById('neural-canvas');
+    if(canvas) {
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        
+        // Smaller radius for less aggressive mouse pulling
+        let mouse = { x: null, y: null, radius: 100 }; 
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.clientX;
+            mouse.y = event.clientY;
+        });
+
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor(x, y, dx, dy, size, color) {
+                this.x = x; this.y = y;
+                this.dx = dx; this.dy = dy;
+                this.size = size; this.color = color;
+                this.baseX = this.x; this.baseY = this.y;
+                this.density = (Math.random() * 30) + 1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                if (mouse.x != null && mouse.y != null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    let forceDirectionX = dx / distance;
+                    let forceDirectionY = dy / distance;
+                    let maxDistance = mouse.radius;
+                    let force = (maxDistance - distance) / maxDistance;
+                    let directionX = forceDirectionX * force * this.density;
+                    let directionY = forceDirectionY * force * this.density;
+
+                    if (distance < mouse.radius) {
+                        this.x -= directionX;
+                        this.y -= directionY;
+                    } else {
+                        if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 10;
+                        if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 10;
+                    }
+                } else {
+                    if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 10;
+                    if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 10;
+                }
+                this.baseX += this.dx;
+                this.baseY += this.dy;
+                if (this.baseX < 0 || this.baseX > width) this.dx = -this.dx;
+                if (this.baseY < 0 || this.baseY > height) this.dy = -this.dy;
+                this.draw();
+            }
+        }
+
+        function init() {
+            particles = [];
+            // Divisor increased from 9000 to 15000 = Far fewer particles for better performance
+            let numberOfParticles = (width * height) / 15000; 
+            // Fainter colors for subtlety
+            let colors = ['rgba(59, 130, 246, 0.3)', 'rgba(139, 92, 246, 0.3)', 'rgba(219, 39, 119, 0.3)'];
+
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = Math.random() * (innerWidth - size * 2 - size * 2) + size * 2;
+                let y = Math.random() * (innerHeight - size * 2 - size * 2) + size * 2;
+                let dx = (Math.random() - 0.5) * 1; 
+                let dy = (Math.random() - 0.5) * 1; 
+                let color = colors[Math.floor(Math.random() * colors.length)];
+                particles.push(new Particle(x, y, dx, dy, size, color));
+            }
+        }
+
+        function connect() {
+            let opacityValue = 1;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) 
+                                 + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                    if (distance < (width / 7) * (height / 7)) {
+                        opacityValue = 1 - (distance / 20000);
+                        // Multiplier lowered to 0.2 to make lines fainter
+                        ctx.strokeStyle = `rgba(139, 92, 246, ${opacityValue * 0.2})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < particles.length; i++) particles[i].update();
+            connect();
+        }
+
+        init();
+        animate();
+    }
+</script>
 
 </body>
 </html>
